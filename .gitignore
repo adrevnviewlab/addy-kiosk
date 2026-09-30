@@ -1,0 +1,23 @@
+# Deployment metadata and dependencies
+.vercel/
+node_modules/
+
+# Local browser profiles and caches
+.kiosk-browser/
+.cache/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.log
+
+# Working files and exported previews
+work/
+previews/
+refined-photos/
+
+# Local configuration and operating-system files
+.env
+.env.*
+.DS_Store
+Thumbs.db
+desktop.ini

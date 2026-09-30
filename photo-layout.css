@@ -1,0 +1,34 @@
+/* Plain-background product visuals: keep each whole dish visible. */
+.menu-card,
+.card-copy,
+.card-picture {
+  background: #fff;
+}
+
+.card-picture img,
+.menu-card:hover .card-picture img,
+.menu-card:focus .card-picture img {
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(10px, .7vw, 24px);
+  transform: none;
+  transition: none;
+}
+
+.item-picture {
+  width: 100%;
+  margin: 0 0 24px;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+  padding: clamp(12px, 1vw, 32px);
+}
+
+@media (orientation: landscape) and (min-width: 960px) {
+  .card-picture {
+    height: clamp(165px, 23dvh, 475px);
+  }
+  .item-picture {
+    margin: 0;
+  }
+}

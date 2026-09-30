@@ -1,0 +1,21 @@
+.git/
+.vercel/
+node_modules/
+.kiosk-browser/
+.cache/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.log
+work/
+previews/
+refined-photos/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+desktop.ini
+README.md
+README.txt
+Start Kiosk.cmd
+.gitignore

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#1c171c"><title>Welcome to Addy’s Pizzeria</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#1c171c;font-family:Inter,Arial,sans-serif}body{display:grid;place-items:center;overscroll-behavior:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}.welcome-stage{position:relative;width:min(100vw,177.7778dvh);height:min(100dvh,56.25vw);isolation:isolate}.welcome-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.start-order{position:absolute;left:53.65%;top:66.7%;width:34.7%;height:9.1%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 2.1%;background:#f8f2e5;color:#8b151b;border:0;border-radius:12px;text-decoration:none;font-size:clamp(19px,1.72vw,64px);font-weight:700;letter-spacing:-.025em;box-shadow:0 10px 30px #0002;touch-action:manipulation;transition:background .15s,transform .15s}.start-order:hover{background:#fffaf0}.start-order:active{transform:scale(.985)}.start-order:focus-visible{outline:5px solid #f3c797;outline-offset:8px}.start-order span:last-child{font-size:1.3em;font-weight:400}.touch-hint{position:absolute;left:53.65%;top:78.2%;color:#d9cbb7;margin:0;font-size:clamp(12px,1vw,36px);letter-spacing:.025em}.fullscreen-button{position:fixed;left:24px;bottom:20px;background:#1c171cbd;color:#f8f2e5;border:1px solid #f8f2e540;padding:12px 17px;border-radius:8px;font:500 13px Inter,Arial,sans-serif;min-height:48px;cursor:pointer;touch-action:manipulation}.fullscreen-button:focus-visible{outline:3px solid #f3c797;outline-offset:3px}.fullscreen-button[hidden]{display:none}@media(max-width:900px){.start-order{border-radius:8px;padding:0 2%}.fullscreen-button{left:15px;bottom:12px;font-size:11px;min-height:44px;padding:10px 13px}}@media(prefers-reduced-motion:reduce){.start-order{transition:none}}
+</style></head><body>
+<main class="welcome-stage" aria-label="Welcome to Addy’s Pizzeria">
+  <img class="welcome-image" src="assets/kiosk-welcome.png" alt="Addy’s Pizzeria in Huntington, New York. Good pizza. Better company. Your table on Main Street. Pizza, Italian favorites, and a warm welcome. 75 East Main Street. (631) 923-1389.">
+  <a class="start-order" id="start-order" href="menu.html"><span>Order now</span><span aria-hidden="true">→</span></a>
+  <p class="touch-hint">Touch to begin your order</p>
+</main>
+<script>
+document.getElementById('start-order').addEventListener('click',()=>{try{sessionStorage.removeItem('addys-kiosk-order-v2');localStorage.removeItem('addys-kiosk-order-v2');}catch{}});
+</script></body></html>

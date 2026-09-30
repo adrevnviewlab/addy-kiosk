@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#8b151b">
+  <title>Addy’s Pizzeria · Order your favorites</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="kiosk.css">
+  <link rel="stylesheet" href="photo-layout.css">
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="./index.html" aria-label="Addy’s Pizzeria home"><img src="assets/logo-cream.webp" alt="Addy’s Pizzeria"></a>
+    <div class="location"><span class="location-name">Your neighborhood pizzeria</span><span>75 East Main Street, Huntington</span></div>
+    <div class="header-actions">
+      <button class="home-button" id="home-btn">Welcome screen</button>
+      <div class="fulfilment" role="group" aria-label="Order type"><button data-mode="pickup" class="selected" aria-pressed="true">Pickup</button><button data-mode="delivery" aria-pressed="false">Delivery</button></div>
+      <button class="help-button" id="help-btn">Need a hand?</button>
+    </div>
+  </header>
+  <div class="app-shell">
+    <aside class="category-rail">
+      <div class="rail-heading">The menu</div>
+      <nav id="categories" aria-label="Menu categories"></nav>
+      <div class="rail-bottom"><span>Good pizza.<br>Better company.</span><button id="about-btn">Visit Addy’s <span aria-hidden="true">↗</span></button></div>
+    </aside>
+    <main id="catalog" class="catalog">
+      <div class="catalog-intro"><div><p class="overline">A LITTLE OF WHAT YOU LOVE</p><h1>Find your favorite.</h1><p>From the first garlic knot to the last slice.</p></div><label class="search"><span class="sr-only">Search the menu</span><input id="search-input" type="search" placeholder="Find a dish…" autocomplete="off"><span class="search-mark" aria-hidden="true"></span></label></div>
+      <div class="welcome" id="welcome"><div class="welcome-copy"><span class="welcome-label">75 EAST MAIN STREET</span><h2>Your table on<br>Main Street.</h2><p>Pizza, Italian favorites,<br>and a warm welcome.</p><button id="browse-pizza">Explore our pizza <span aria-hidden="true">↗</span></button></div><div class="welcome-photo"><img src="assets/storefront-1600.webp" alt="The real Addy’s storefront on East Main Street"></div></div>
+      <div class="menu-heading"><div><h2 id="category-title">The favorites</h2><p id="category-description">A few good places to start.</p></div><span id="result-count"></span></div>
+      <div id="subcategories" class="subcategories" aria-label="Pizza styles"></div>
+      <div id="menu-grid" class="menu-grid" aria-live="polite"></div>
+      <div id="no-results" class="no-results" hidden><h3>No dishes found.</h3><p>Try another name or browse the whole menu.</p><button id="reset-search">Show all dishes</button></div>
+      <p class="menu-source">Menu starting prices. Please confirm sizes, current prices and availability with the restaurant.</p>
+      <div class="menu-bottom"><span>Food allergies? Please speak with the restaurant before ordering.</span><button id="allergy-btn">Allergen information ↗</button></div>
+    </main>
+    <aside id="cart" class="cart-panel" aria-label="Your order">
+      <div class="cart-heading"><div><p class="overline">LET’S MAKE IT A GOOD ONE</p><h2>Your order<span id="cart-count">0</span></h2></div><button class="cart-mobile-close" id="cart-close" aria-label="Close order">×</button></div>
+      <div class="order-mode"><span id="order-mode-label">Pickup</span><span id="order-mode-detail">75 East Main Street</span></div>
+      <div id="cart-items" class="cart-items"></div>
+      <div id="cart-empty" class="cart-empty"><img class="empty-brand" src="assets/logo-red.webp" alt=""><h3>Something delicious<br>belongs here.</h3><p>Choose a favorite and<br>we’ll keep your list right here.</p></div>
+      <div class="cart-bottom"><div class="subtotal"><span>Estimated subtotal</span><strong id="cart-total">$0.00</strong></div><p class="cart-price-note">Starting prices. Final total confirmed by phone.</p><button class="primary checkout-btn" id="review-btn" disabled>Review order <span aria-hidden="true">→</span></button><button class="clear-order" id="clear-btn" hidden>Start a new order</button></div>
+    </aside>
+  </div>
+  <button id="mobile-cart" class="mobile-cart" hidden><span>View order <span id="mobile-count">0</span></span><strong id="mobile-total">$0.00 <span aria-hidden="true">→</span></strong></button>
+  <div id="toast" class="toast" role="status"></div>
+  <dialog id="item-dialog" class="item-dialog">
+    <form id="item-form"><img id="item-picture" class="item-picture" alt="" hidden><button type="button" class="dialog-close" data-close="item-dialog" aria-label="Close dish details">×</button><p id="item-category" class="overline"></p><h2 id="item-name"></h2><p id="item-description" class="item-description"></p><div class="item-price"><span>Starting at</span><strong id="item-price"></strong></div><div class="item-options"><label for="item-note">Make it yours <span>Optional</span></label><textarea id="item-note" maxlength="200" rows="3" placeholder="Special requests, sauce on the side…"></textarea><p>We’ll confirm special requests when you call.</p></div><div class="item-add-row"><div class="quantity"><button type="button" id="item-minus" aria-label="Decrease quantity">−</button><output id="item-qty">1</output><button type="button" id="item-plus" aria-label="Increase quantity">+</button></div><button type="submit" class="primary" id="item-add">Add to order</button></div></form>
+  </dialog>
+  <dialog id="review-dialog" class="review-dialog"><button class="dialog-close" data-close="review-dialog" aria-label="Close review">×</button><p class="overline">ONE LAST LOOK</p><h2>Good choices.</h2><p class="review-intro">Your order list is ready. Call Addy’s to confirm your items, sizes and final total.</p><div id="review-items" class="review-items"></div><div class="review-total"><span>Estimated subtotal</span><strong id="review-total"></strong></div><p id="review-mode" class="review-mode"></p><a class="primary call-button" href="tel:+16319231389">Call (631) 923-1389 <span aria-hidden="true">↗</span></a><button id="save-order" class="secondary">Save my order list</button><p class="review-note">This list has not been sent to the restaurant.</p></dialog>
+  <dialog id="info-dialog" class="info-dialog"><button class="dialog-close" data-close="info-dialog" aria-label="Close information">×</button><div id="info-content"></div></dialog>
+  <dialog id="exit-dialog" class="kiosk-confirm"><p class="overline">START FRESH</p><h2>Return to welcome?</h2><p>Your current order list will be cleared for the next customer.</p><div class="confirm-actions"><button class="secondary" data-close="exit-dialog">Keep ordering</button><button class="primary" id="return-home">Return to welcome</button></div></dialog>
+  <dialog id="idle-dialog" class="kiosk-confirm"><p class="overline">STILL HERE?</p><h2>Take your time.</h2><p>We’ll return to the welcome screen in <strong id="idle-count">30</strong> seconds.</p><button class="primary" id="keep-ordering">Keep ordering</button></dialog>
+  <script src="menu-data.js"></script>
+  <script src="app.js"></script>
+  <script src="kiosk.js"></script>
+</body>
+</html>
